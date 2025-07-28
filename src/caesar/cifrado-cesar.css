@@ -1,0 +1,41 @@
+body {
+  background-color: azure;
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  font-family: monospace;
+  background-color: #FF7F50;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+select {
+  padding: 5px;
+}
+
+input {
+  margin: 5px 0 5px 0;
+  padding: 3px;
+}
+
+button {
+  background-color: #FF7F50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3;
+  margin: 12px 0 10px 0;
+  padding: 8px;
+}
+
+button:hover {
+  background-color: #E9967A;
+}
+
+.hidden {
+  display: none;
+}
+

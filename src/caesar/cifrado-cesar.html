@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cifrado César</title>
+  <link rel="stylesheet" href="cifrado-cesar.css"/>
+</head>
+
+<body>
+  <h1>Cifrado César</h1>
+  <form>
+    <label for="input-text">Ingrese el texto a cifrar/descifrar: </label>
+    <input type="text" id="input-text" placeholder="Ingrese el texto aquí">
+    <br/>
+    <label for="displacement">Ingrese la clave de cifrado: </label>
+    <input type="number" id="displacement-value" placeholder="0">
+    <br />
+    <label for="operation">Cifrar/Descifrar: </label>
+    <br />
+    <select id="operation">
+      <option value="" selected disabled>Seleccione una opción</option>
+      <option value="cipher">Cifrar</option>
+      <option value="decipher">Descifrar</option>
+    </select>
+    <br />
+    <button id="send-info">Enviar</button>
+  </form>
+  <div id="display-ciphered-text" class="hidden">
+    <h3>Resultado: </h3>
+    <p id="show-ciphered-text"></p>
+  </div>
+  <script src="cifrado-cesar.js"></script>
+</body>
+
+</html>
