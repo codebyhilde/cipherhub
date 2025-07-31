@@ -1,55 +1,62 @@
-// Función para cifrar
-function cipherText(text, displace) {
-  let cipheredText = "";
-  
-  for (let i = 0; i < text.length; i++) {
-    let char = text.charCodeAt(i);
+// Función para cifrar/descifrar
+function caesarCipher(text, displacement, operation) {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+    const upperAlphabet = alphabet.toUpperCase();
+    let result = "";
     
-    let newChar = char + displace;
+    // Lógica de cifrado
+    for (let char of text) {
+        if (alphabet.includes(char)) {
+            const base = alphabet;
+            const index = (base.indexOf(char) + displacement * (operation === "cipher" ? 1: -1) + 26) % 26;
+            result += base[index];
+        } else if (upperAlphabet.includes(char)) {
+            const base = upperAlphabet;
+            const index = (base.indexOf(char) + displacement * (operation === "cipher" ? 1:-1) + 26) % 26;
+            result += base[index];
+        } else {
+            result += char; // Mantener caracteres no alfabéticos
+        }
+    }
     
-    cipheredText += String.fromCharCode(newChar);
-  }
-  
-  return cipheredText;
+    return result;
 }
 
-// Función para descifrar
-function decipherText(cipheredText, displace) {
-  let decipheredText = "";
-  
-  for (let i = 0; i < cipheredText.length; i++) {
-    let char = cipheredText.charCodeAt(i);
+// Manejo del evento
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    const copyBtn = document.getElementById("copy-btn");
+    const resultContainer = document.getElementById("display-ciphered-text");
+    const resultText = document.getElementById("show-ciphered-text");
     
-    let newChar = char - displace;
+    // Desplegar resultado
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const inputText = document.getElementById("input-text").value;
+        const displacement = parseInt(document.getElementById("displacement-value").value);
+        const operation = document.getElementById("operation").value;
+        
+        if (!operation) {
+            alert("Por favor seleccione una operacion válida");
+            return;
+        }
+        
+        resultText.textContent = caesarCipher(inputText, displacement, operation);
+        resultContainer.classList.remove("hidden");
+    });
     
-    decipheredText += String.fromCharCode(newChar);
-  }
-  
-  return decipheredText;
-}
-
-// Se obtiene el id del botón para manejar el evento click
-let sendInfo = document.getElementById("send-info");
-
-sendInfo.addEventListener("click", (e) => {
-  e.preventDefault();
-  
-  // Elementos DOM
-  let inputText = document.getElementById("input-text").value;
-  let displacementValue = parseInt(document.getElementById("displacement-value").value);
-  let operation = document.getElementById("operation").value;
-  let displayCipheredText = document.getElementById("display-ciphered-text");
-  let showCipheredText = document.getElementById("show-ciphered-text");
-  
-  let outputText = "";
-  if (operation === 'cipher') {
-    outputText = cipherText(inputText, displacementValue);
-  } else if (operation === 'decipher') {
-    outputText = decipherText(inputText, displacementValue);
-  } else {
-    alert("Seleccione una operación válida");
-    return;
-  }
-  displayCipheredText.classList.remove("hidden");
-  showCipheredText.textContent = outputText;
+    // Función de copiado
+    copyBtn.addEventListener("click", () => {
+        const text = resultText.textContent;
+        
+        // Uso de API Web para copiar
+        navigator.clipboard.writeText(text)
+          .then(() => {
+              copyBtn.innerHTML = '<i class="far fa-check"></i> ¡Copiado!';
+              setTimeout(() => {
+                  copyBtn.innerHTML = '<i class="far fa-copy"></i> Copiar';
+              }, 1000);
+        });
+    });
 });

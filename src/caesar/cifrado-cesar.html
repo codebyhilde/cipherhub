@@ -1,37 +1,56 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cifrado César</title>
-  <link rel="stylesheet" href="cifrado-cesar.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="cifrado-cesar.css">
 </head>
-
 <body>
-  <h1>Cifrado César</h1>
-  <form>
-    <label for="input-text">Ingrese el texto a cifrar/descifrar: </label>
-    <input type="text" id="input-text" placeholder="Ingrese el texto aquí">
-    <br/>
-    <label for="displacement">Ingrese la clave de cifrado: </label>
-    <input type="number" id="displacement-value" placeholder="0">
-    <br />
-    <label for="operation">Cifrar/Descifrar: </label>
-    <br />
-    <select id="operation">
-      <option value="" selected disabled>Seleccione una opción</option>
-      <option value="cipher">Cifrar</option>
-      <option value="decipher">Descifrar</option>
-    </select>
-    <br />
-    <button id="send-info">Enviar</button>
-  </form>
-  <div id="display-ciphered-text" class="hidden">
-    <h3>Resultado: </h3>
-    <p id="show-ciphered-text"></p>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-lock"></i> Cifrado César</h1>
+      <p>Cifra y descifra texto usando el método clásico</p>
+    </header>
+    <main class="content">
+      <div class="card">
+        <form id="cipher-form">
+          <div class="form-group">
+            <label for="input-text">Texto</label>
+            <input type="text" id="input-text" placeholder="Escribe tu texto aquí..." required>
+          </div>
+          <div class="form-group">
+            <label for="displacement-value">Desplazamiento:</label>
+            <input type="number" id="displacement-value" min="0" max="26" value="3" required>
+          </div>
+          <div class="form-group">
+            <label for="operation">Operación:</label>
+            <select id="operation" required>
+              <option value="" selected disabled>Seleccione una opción</option>
+              <option value="cipher">Cifrar</option>
+              <option value="decipher">Descifrar</option>
+            </select>
+          </div>
+          <button type="submit" id="send-info"><i class="fas fa-key"></i> Procesar</button>
+        </form>
+      </div>
+      <div id="display-ciphered-text" class="hidden">
+        <div class="result-container">
+          <div class="result-header">
+            <h3><i class="fas fa-result"></i> Resultado:</h3>
+            <button id="copy-btn">
+              <i class="far fa-copy"></i> Copiar
+              </button>
+          </div>
+          <p id="show-ciphered-text"></p>
+        </div>  
+      </div>
+    </main>
+    <footer class="footer">
+      <p>Cifrado César</p>
+    </footer>
   </div>
   <script src="cifrado-cesar.js"></script>
 </body>
-
 </html>
