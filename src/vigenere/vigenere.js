@@ -1,27 +1,42 @@
-// Valida que la clave sea alfabética (sin números/símbolos)
-function isValidVigenereKey(key) {
-    return /^[a-zA-Z]+$/.test(key);
-}
-
+// Función para cifrar/descifrar
 function vigenereCipher(text, key, operation) {
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    const upperAlphabet = alphabet.toUpperCase();
+    let keyIndex = 0;
     let result = "";
     
+    // Normalizar la clave a minúsculas
+    key = key.toLowerCase();
+    
+    // Lógica de cifrado
     for (let char of text) {
-        if (alphabet.includes(char)) {
-            const base = alphabet;
-            const index = ((base.indexOf(char) + base.indexOf(key)) * (operation === "cipher" ? 1: -1) + 26) % 26;
-            result += base[index];
-        } else if (upperAlphabet.includes(char)) {
-            const base = upperAlphabet;
-            const index = ((base.indexOf(char) + base.indexOf(key)) * (operation === "cipher" ? 1: -1) + 26) % 26;
-            result += base[index];
+        const lowerChar = char.toLowerCase();
+        if (alphabet.includes(lowerChar)) {
+            const charIndex = alphabet.indexOf(lowerChar);
+            const keyChar = key[keyIndex % key.length]; // Manejo cíclico de la clave
+            const shift = alphabet.indexOf(keyChar);
+            
+            let index;
+            if (operation === "cipher") {
+                index = (charIndex + shift) % 26;
+            } else {
+                index = ((charIndex - shift) + 26) % 26;
+            }
+            
+            // Mantener mayúsculas/minúsculas originales
+            if (char === char.toUpperCase()) {
+                result += alphabet[index].toUpperCase();
+            } else {
+                result += alphabet[index];
+            }
+            
+            keyIndex++;
         } else {
-            result += char;
+            result += char; // Conservar caracteres no alfabéticos
         }
     }
     
     return result;
 }
 
+console.log(vigenereCipher("Hola, como estás?", "key", "cipher"));
+console.log(vigenereCipher("Rsjk, gmws ccxáq?", "key", "decipher"));
