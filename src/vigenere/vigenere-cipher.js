@@ -38,5 +38,32 @@ function vigenereCipher(text, key, operation) {
     return result;
 }
 
-console.log(vigenereCipher("Hola, como estás?", "key", "cipher"));
-console.log(vigenereCipher("Rsjk, gmws ccxáq?", "key", "decipher"));
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    const copyBtn = document.getElementById("copy-btn");
+    const resultContainer = document.getElementById("display-ciphered-text");
+    const resultText = document.getElementById("show-ciphered-text");
+    
+    
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const inputText = document.getElementById("input-text").value;
+        const inputKey = document.getElementById("input-key").value;
+        const operation = document.getElementById("operation").value;
+        
+        resultContainer.classList.remove("hidden");
+        resultText.textContent = vigenereCipher(inputText, inputKey, operation);
+    });
+    
+    copyBtn.addEventListener("click", () => {
+        const text = resultText.textContent;
+        navigator.clipboard.writeText(text)
+          .then(() => {
+              copyBtn.innerHTML = '<i class="far fa-check"></i> ¡Copiado!';
+              setTimeout(() => {
+                  copyBtn.innerHTML = '<i class="far fa-copy"></i> Copiar';
+              }, 1000);
+          });
+    });
+});
