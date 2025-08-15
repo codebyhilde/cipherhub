@@ -36,3 +36,10 @@ function inputToDigraphs(input) {
 }
 
 console.log(inputToDigraphs('hello world'));
+
+// Normaliza la clave y elimina duplicados
+function prepareCipherKey(key) {
+    let processedKey = new Set(prepareCipherInput(key));
+    return Array.from(processedKey);
+}
+
