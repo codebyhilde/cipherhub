@@ -43,3 +43,20 @@ function prepareCipherKey(key) {
     return Array.from(processedKey);
 }
 
+// Crea una matriz 5 x 5
+function buildMatrix(key) {
+    const alphabet = 'ABCDEFGHIKLMNOPQRSTUVWXYZ';
+    const uniqueChars = new Set([...key, ...alphabet]);
+    const matrixChars = Array.from(uniqueChars);
+    
+    // Creación de la matriz 5 x 5 como un mapa {1: [...], 2: [...], ...}
+    const matrix = new Map();
+    for (let row = 0; row < 5; row++) {
+        const start = row * 5;
+        matrix.set(row + 1, matrixChars.slice(start, start + 5));
+    }
+        
+    return matrix;
+}
+
+// console.log(Object.fromEntries(buildMatrix("PLAYFIR")));
