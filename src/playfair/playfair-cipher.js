@@ -8,8 +8,7 @@ function prepareCipherInput(input) {
 }
 
 // Texto plano a digramas
-function inputToDigraphs(input) {
-    const chars = prepareCipherInput(input);
+function inputToDigraphs(chars) {
     const digraphs = [];
     let i = 0;
   
@@ -35,8 +34,6 @@ function inputToDigraphs(input) {
     return digraphs;
 }
 
-console.log(inputToDigraphs('hello world'));
-
 // Normaliza la clave y elimina duplicados
 function prepareCipherKey(key) {
     let processedKey = new Set(prepareCipherInput(key));
@@ -59,6 +56,30 @@ function buildMatrix(key) {
     return matrix;
 }
 
+// Función principal
+function playfairCipher(inputText, inputKey, operation) {
+    // 1. Normalización del texto
+    const plainText = prepareCipherInput(inputText);
+    
+    //2. Normalización de la clave
+    const key = prepareCipherKey(inputKey);
+    
+    // 3. Creación de la matriz
+    const matrix = buildMatrix(key);
+    
+    // 4. Creación de los digramas
+    let digraphs = inputToDigraphs(plainText);
+    
+    // 5. Cifrado/descifrado
+    let cipheredDigraphs = transformDigraphs(matrix, digraphs, operation);
+    
+    return cipheredDigraphs.join('');
+}
+
+console.log(playfairCipher('hello world', 'monarchy', 'cipher'));
+console.log(playfairCipher('CFSUPMVNMTBZ', 'monarchy', 'decipher'));
+
+// Lógica de cifrado/descifrado
 function transformDigraphs(matrix, digraphs, operation) {
     let cipheredDigraphs = [];
     for (let i = 0; i < digraphs.length; i++) {
