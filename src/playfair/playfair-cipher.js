@@ -1,3 +1,35 @@
+// Manejo del evento
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    const copyBtn = document.getElementById("copy-btn");
+    const resultContainer = document.getElementById("display-ciphered-text");
+    const resultText = document.getElementById("show-ciphered-text");
+    
+    // Mostrar resultado
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const inputText = document.getElementById("input-text").value;
+        const inputKey = document.getElementById("input-key").value;
+        const operation = document.getElementById("operation").value;
+        
+        resultContainer.classList.remove("hidden");
+        resultText.textContent = playfairCipher(inputText, inputKey, operation);
+    });
+    
+    // Función de copiado
+    copyBtn.addEventListener("click", () => {
+        const text = resultText.textContent;
+        navigator.clipboard.writeText(text)
+          .then(() => {
+              copyBtn.innerHTML = '<i class="far fa-check"></i> ¡Copiado!';
+              setTimeout(() => {
+                  copyBtn.innerHTML = '<i class="far fa-copy"></i> Copiar';
+              }, 1000);
+          });
+    });
+});
+
 // Normaliza el texto (mayúsculas, reemplaza J→I, elimina espacios) y devuelve un array
 function prepareCipherInput(input) {
     return input
