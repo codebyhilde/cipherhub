@@ -3,20 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto de Cifrados</title>
-  <link rel="stylesheet" href="/styles/main.css">
+  <title>Cipherhub - Web de cifrados</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/ciphers.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <h1>¡Bienvenido a este proyecto de cifrados!</h1>
-  <h3>Aquí puedes navegar por los diferentes tipos de cifrados disponibles</h3>
-  <nav>
-    <ul>
-      <li><a href="caesar/cifrado-cesar.html">Cifrado César</a></li>
-      <li><a href="#">Próximamente</a></li>
-      <li><a href="#">Próximamente</a></li>
-      <li><a href="#">Próximamente</a></li>
-    </ul>
-  </nav>
-  <h4>¡Más cifrados serán añadidos próximamente!</h4>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-lock"></i> Cipherhub</h1> 
+      <p>Explora diferentes algoritmos de cifrado clásico</p>
+    </header>
+    
+    <main class="content">
+      <section class="intro-section">
+        <div class="card">
+          <h2>Bienvenido a Cipherhub</h2>
+          <p>Una colección de implementaciones de algoritmos criptográficos clásicos. Selecciona uno de los métodos disponibles para comenzar.</p>
+        </div>
+      </section>
+      
+      <section class="ciphers-section">
+        <h2><i class="fas fa-code"></i> Algoritmos Disponibles</h2>
+        
+        <div class="cipher-cards">
+          <div class="cipher-card">
+            <div class="card-icon">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h3>Cifrado César</h3>
+            <p>Un cifrado por sustitución que desplaza las letras del alfabeto según un valor numérico fijo.</p>
+            <a href="caesar/caesar-cipher.html" class="btn cipher-btn">
+              <i class="fas fa-key"></i> Usar Cifrado César
+            </a>
+          </div>
+          
+          <div class="cipher-card">
+            <div class="card-icon">
+              <i class="fas fa-font"></i>
+            </div>
+            <h3>Cifrado Vigenère</h3>
+            <p>Un método de cifrado polialfabético que utiliza una palabra clave para determinar el desplazamiento.</p>
+            <a href="vigenere/vigenere-cipher.html" class="btn cipher-btn">
+              <i class="fas fa-key"></i> Usar Cifrado Vigenère
+            </a>
+          </div>
+          
+          <div class="cipher-card">
+            <div class="card-icon">
+              <i class="fas fa-th"></i>
+            </div>
+            <h3>Cifrado Playfair</h3>
+            <p>Un cifrado de sustitución digrámica que encripta pares de letras en lugar de letras individuales.</p>
+            <a href="playfair/playfair-cipher.html" class="btn cipher-btn">
+              <i class="fas fa-key"></i> Usar Cifrado Playfair
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      <section class="info-section">
+        <div class="card">
+          <h2><i class="fas fa-info-circle"></i> Acerca de este proyecto</h2>
+          <p>Este proyecto es una implementación en constante desarrollo de algoritmos criptográficos clásicos. La página se irá actualizando con nuevos cifrados y mejoras en el futuro.</p>
+          <p>Puedes explorar el código fuente en <a href="#" class="repo-link">GitHub</a>.</p>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <p>Cipherhub - 2025</p>
+    </footer>
+  </div>
 </body>
 </html>
