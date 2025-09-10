@@ -1,4 +1,5 @@
 import { CipherHeader } from "./CipherHeader";
+import { HomeButton } from "./HomeButton";
 
 interface AlgorithmLayoutProps {
     title: string;
@@ -19,6 +20,7 @@ export function AlgorithmLayout({
             <main className="content">
                 <div className="card">{formContent}</div>
                 {resultContent}
+                <HomeButton />
             </main>
         </div>
     );
