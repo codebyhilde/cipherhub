@@ -1,0 +1,17 @@
+.cipher-btn {
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cipher-btn:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}

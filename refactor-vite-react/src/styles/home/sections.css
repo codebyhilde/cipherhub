@@ -1,0 +1,51 @@
+.intro-section {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.intro-section .card {
+  padding: 2rem;
+}
+
+.intro-section h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.intro-section p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.ciphers-section {
+  margin-bottom: 2.5rem;
+}
+
+.ciphers-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--dark);
+  font-size: 1.8rem;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section .card {
+  padding: 2rem;
+}
+
+.info-section h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.info-section p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
