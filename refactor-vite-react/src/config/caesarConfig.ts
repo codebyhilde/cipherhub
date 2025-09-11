@@ -1,7 +1,7 @@
 import { caesarCipher } from "../algorithms/caesar";
 
 export const caesarConfig = {
-    name: "Cifrado Cesár",
+    name: "Cifrado César",
     description: "Cifra y descifra texto usando el método clásico",
     fields: [
         {
