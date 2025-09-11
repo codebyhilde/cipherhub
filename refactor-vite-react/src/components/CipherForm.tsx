@@ -14,6 +14,8 @@ type FieldConfig = {
     min?: number;
     max?: number;
     defaultValue?: string | number;
+    pattern?: string;
+    title?: string;
     placeholder?: string;
     options?: FieldOption[];
 };
@@ -97,6 +99,8 @@ export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
                             required={field.required}
                             min={field.min}
                             max={field.max}
+                            pattern={field.pattern}
+                            title={field.title}
                             placeholder={field.placeholder}
                             value={values[field.name]}
                             onChange={handleChange}
