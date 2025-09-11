@@ -1,4 +1,4 @@
-import { Shuffle, CodeXml, Info } from "lucide-react";
+import { Shuffle, Key, CodeXml, Info } from "lucide-react";
 import { CipherHeader } from "../components/CipherHeader.tsx";
 import { CipherCardSection } from "../components/CipherCardSection.tsx";
 
@@ -33,6 +33,13 @@ export default function HomeView() {
                             description="Un cifrado por sustitución que desplaza las letras del alfabeto según un valor numérico fijo."
                             icon={<Shuffle />}
                             route="/caesar"
+                        />
+
+                        <CipherCardSection
+                            title="Cifrado Vigenère"
+                            description="Un método de cifrado polialfabético que utiliza una palabra clave para determinar el desplazamiento."
+                            icon={<Key />}
+                            route="/vigenere"
                         />
                     </div>
                 </section>
