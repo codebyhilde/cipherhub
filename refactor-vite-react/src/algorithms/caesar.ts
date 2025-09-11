@@ -3,7 +3,7 @@ export function caesarCipher(
     text: string,
     displacement: number,
     operation: "cipher" | "decipher"
-): string {
+) {
     const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     const UPPER_ALPHABET = ALPHABET.toUpperCase();
     let result = "";
