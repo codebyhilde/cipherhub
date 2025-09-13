@@ -1,4 +1,4 @@
-import { Shuffle, Key, CodeXml, Info } from "lucide-react";
+import { Shuffle, Key, Grid3x3, CodeXml, Info } from "lucide-react";
 import { CipherHeader } from "../components/CipherHeader.tsx";
 import { CipherCardSection } from "../components/CipherCardSection.tsx";
 
@@ -34,12 +34,17 @@ export default function HomeView() {
                             icon={<Shuffle />}
                             route="/caesar"
                         />
-
                         <CipherCardSection
                             title="Cifrado Vigenère"
                             description="Un método de cifrado polialfabético que utiliza una palabra clave para determinar el desplazamiento."
                             icon={<Key />}
                             route="/vigenere"
+                        />
+                        <CipherCardSection
+                            title="Cifrado Playfair"
+                            description="Un cifrado de sustitución digrámica que encripta pares de letras en lugar de letras individuales."
+                            icon={<Grid3x3 />}
+                            route="/playfair"
                         />
                     </div>
                 </section>
