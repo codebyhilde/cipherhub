@@ -1,4 +1,4 @@
-import { FileText, Lock, LockOpen } from "lucide-react";
+import { Lock, LockOpen } from "lucide-react";
 import { CopyButton } from "./CopyButton.tsx";
 
 interface CipherResultProps {
