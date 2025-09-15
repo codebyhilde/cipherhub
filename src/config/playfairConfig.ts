@@ -8,7 +8,7 @@ export const playfairConfig = {
             name: "inputText",
             label: "Texto",
             type: "text",
-            pattern: "[a-zA-Z\s]*",
+            pattern: "[a-zA-Z ]*",
             title: "Por favor ingrese solo letras y espacios",
             placeholder: "Escribe tu texto aquí...",
             required: true
