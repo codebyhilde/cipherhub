@@ -1,69 +1,74 @@
-# React + TypeScript + Vite
+# 🔐 Cipherhub — Cifrados clásicos, arquitectura moderna
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Cipherhub** es una SPA construida con **React + TypeScript y orquestada con Vite** que implementa algoritmos criptográficos clásicos con una arquitectura modular, escalable y visualmente clara. Este proyecto nace de la necesidad de migrar una implementación previa en HTML/CSS/JS con mucho código boilerplate hacia un entorno más profesional que permita continuidad, portabilidad y evolución técnica.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Características principales
 
-## Expanding the ESLint configuration
+- 🔄 **Cifrado y descifrado dinámico** con algoritmos como César, Vigenère y Playfair
+- 🧩 **Arquitectura modular** con separación clara entre lógica, configuración, vistas y componentes
+- 🎨 **Interfaz responsiva** optimizada para móviles y escritorio
+- 🧠 **Validación semántica** en formularios con expresiones regulares y tooltips explicativos
+- ⚙️ **Sistema de configuración individual** para cada algoritmo
+- 🚀 **Preparado para escalar** con animaciones, temas, historial y cualquier cosa que mejore la UI/UX
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
+## 🧪 Algoritmos implementados
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Algoritmo | Descripción |
+|-----------|-------------|
+| César     | Desplaza letras según una clave numérica |
+| Vigenère  | Usa una clave alfabética para enmascarar texto |
+| Playfair  | Codifica un texto mediante digramas (pares de letras) utilizando una matriz 5x5 generada por clave |
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧱 Estructura del proyecto
+
+
+src/
+
+    ├── algorithms/       # Lógica de cifrado tipada y modular
+    
+    ├── config/           # Configuraciones por algoritmo (nombre, campos, validaciones)
+    
+    ├── components/       # Componentes reutilizables (formulario, layout, resultado)
+    
+    ├── views/            # Vistas por algoritmo
+    
+    ├── hooks/            # Hooks personalizados para estado y lógica
+    
+    ├── styles/           # Estilos organizados por responsabilidad
+
+└── App.tsx           # Enrutamiento de la homepage y algoritmos
+
+---
+
+## 🛠️ Instalación y ejecución
+
+```bash
+git clone https://github.com/codebyhilde/cipherhub.git
+cd cipherhub
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📚 Roadmap técnico
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [x] Migración completa a React + TypeScript
+- [x] Modularización de estilos y componentes
+- [ ] Configuración centralizada de algoritmos
+- [ ] Animaciones con Framer Motion
+- [ ] Historial de cifrados con persistencia local
+- [ ] Modo educativo con simulador visual
+- [ ] Tema oscuro y personalización visual
+
+> Nota: este roadmap es una guía evolutiva. Es posible que algunas ideas no se cumplan al pie de la letra, pudiendo cambiar y adaptarse según el rumbo del proyecto.
+---
+
+## 🤝 Contribuciones
+
+Este proyecto está en constante evolución y se agradecen comentarios así como sugerencias para seguir mejorandolo. Puedes contribuir haciendo cosas como proponer nuevos algoritmos, mejoras en la UI/UX o refactorización de componentes. Saludos y gracias de antemano.
