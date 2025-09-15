@@ -15,9 +15,9 @@ export const caesarConfig = {
             name: "displacement",
             label: "Desplazamiento",
             type: "number",
-            min: "0",
-            max: "26",
-            defaultValue: "3",
+            min: 0,
+            max: 26,
+            defaultValue: 3,
             placeholder: "0",
             required: true
         },

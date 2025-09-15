@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import { KeyRound } from "lucide-react";
 
 type FieldOption = {
@@ -54,7 +54,7 @@ export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
         }));
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const args = config.fields.map(field => {
             if (field.type === "number") {
