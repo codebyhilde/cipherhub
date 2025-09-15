@@ -111,8 +111,15 @@ function columnShift(
     // Convertir a base 0, aplicar cambio, luego volver a base 1
     const newRow1 = ((row1 - 1 + mod + GRID_SIZE) % GRID_SIZE) + 1;
     const newRow2 = ((row2 - 1 + mod + GRID_SIZE) % GRID_SIZE) + 1;
-
-    return [grid.get(newRow1)[col], grid.get(newRow2)[col]];
+    
+    const shiftedRow1 = grid.get(newRow1);
+    const shiftedRow2 = grid.get(newRow2);
+    
+    if (!shiftedRow1 || !shiftedRow2) {
+      throw new Error("Fila no encontrada en la matriz");
+    }
+    
+    return [shiftedRow1[col], shiftedRow2[col]];
 }
 
 // Desplazamiento en forma de rectangulo
@@ -123,7 +130,14 @@ function boxShift(
     col1: number,
     col2: number
 ) {
-    return [grid.get(row1)[col2], grid.get(row2)[col1]];
+  const firstRow = grid.get(row1);
+  const secondRow = grid.get(row2);
+  
+  if (!firstRow || !secondRow) {
+    throw new Error("Una o ambas filas no encontradas en la matriz");
+  }
+  
+    return [firstRow[col2], secondRow[col1]];
 }
 
 // Lógica de cifrado/descifrado
@@ -140,11 +154,22 @@ function transformDigraphs(
             char1,
             char2
         );
+        
+        if (!charPosition1 || !charPosition2) {
+          throw new Error(`No se encontró la posición de los caracteres: '${char1}' o '${char2}'`);
+        }
+        
+        const rowData = grid.get(charPosition1.row);
+            
+        if (!rowData) {
+          throw new Error(`Fila ${charPosition1.row} no encontrada en la matriz`);
+        }
+        
         let transformed: string[] = [];
 
         if (charPosition1.row === charPosition2.row) {
             transformed = rowShift(
-                grid.get(charPosition1.row),
+                rowData,
                 charPosition1.column,
                 charPosition2.column,
                 operation
