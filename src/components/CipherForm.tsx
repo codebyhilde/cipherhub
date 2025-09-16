@@ -24,7 +24,7 @@ interface CipherConfig {
     name: string;
     description: string;
     fields: FieldConfig[];
-    algorithm: (...args: (string | number)[]) => string;
+    algorithm: (...args: any[]) => string;
 }
 
 interface CipherFormProps {

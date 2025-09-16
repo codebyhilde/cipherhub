@@ -7,14 +7,14 @@ export const vigenereConfig = {
         {
             name: "inputText",
             label: "Texto",
-            type: "text",
+            type: "text" as const,
             placeholder: "Escribe tu texto aquí...",
             required: true
         },
         {
             name: "inputKey",
             label: "Clave:",
-            type: "text",
+            type: "text" as const,
             pattern: "[A-Za-z]+",
             title: "Por favor ingrese solo una palabra con caracteres alfabéticos, sin espacios ni números",
             placeholder: "Escribe tu clave aquí...",
@@ -23,7 +23,7 @@ export const vigenereConfig = {
         {
             name: "operation",
             label: "Operación",
-            type: "select",
+            type: "select" as const,
             required: true,
             options: [
                 { value: "cipher", label: "Cifrar" },

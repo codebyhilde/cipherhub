@@ -2,12 +2,13 @@ import { playfairCipher } from "../algorithms/playfair";
 
 export const playfairConfig = {
     name: "Cifrado Playfair",
-    description: "Codifica y decodifica digramas usando una matriz generada por clave",
+    description:
+        "Codifica y decodifica digramas usando una matriz generada por clave",
     fields: [
         {
             name: "inputText",
             label: "Texto",
-            type: "text",
+            type: "text" as const,
             pattern: "[a-zA-Z ]*",
             title: "Por favor ingrese solo letras y espacios",
             placeholder: "Escribe tu texto aquí...",
@@ -16,7 +17,7 @@ export const playfairConfig = {
         {
             name: "inputKey",
             label: "Clave:",
-            type: "text",
+            type: "text" as const,
             pattern: "[A-Za-z]+",
             title: "Por favor ingrese solo una palabra con caracteres alfabéticos, sin espacios ni números",
             placeholder: "Escribe tu clave aquí...",
@@ -25,7 +26,7 @@ export const playfairConfig = {
         {
             name: "operation",
             label: "Operación",
-            type: "select",
+            type: "select" as const,
             required: true,
             options: [
                 { value: "cipher", label: "Cifrar" },

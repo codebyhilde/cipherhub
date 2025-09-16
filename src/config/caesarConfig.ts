@@ -7,14 +7,14 @@ export const caesarConfig = {
         {
             name: "inputText",
             label: "Texto",
-            type: "text",
+            type: "text" as const,
             placeholder: "Escribe tu texto aquí...",
             required: true
         },
         {
             name: "displacement",
             label: "Desplazamiento",
-            type: "number",
+            type: "number" as const,
             min: 0,
             max: 26,
             defaultValue: 3,
@@ -24,7 +24,7 @@ export const caesarConfig = {
         {
             name: "operation",
             label: "Operación",
-            type: "select",
+            type: "select" as const,
             required: true,
             options: [
                 { value: "cipher", label: "Cifrar" },
