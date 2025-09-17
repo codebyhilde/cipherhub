@@ -1,31 +1,6 @@
 import { useState } from "react";
 import { KeyRound } from "lucide-react";
-
-type FieldOption = {
-    value: string;
-    label: string;
-};
-
-type FieldConfig = {
-    name: string;
-    label: string;
-    type: "text" | "number" | "select";
-    required?: boolean;
-    min?: number;
-    max?: number;
-    defaultValue?: string | number;
-    pattern?: string;
-    title?: string;
-    placeholder?: string;
-    options?: FieldOption[];
-};
-
-interface CipherConfig {
-    name: string;
-    description: string;
-    fields: FieldConfig[];
-    algorithm: (...args: any[]) => string;
-}
+import type { CipherConfig } from "../types/components/forms";
 
 interface CipherFormProps {
     config: CipherConfig;
@@ -63,7 +38,7 @@ export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
             }
             return values[field.name];
         });
-        const result = config.algorithm(...args);
+        const result = (config.algorithm as Function)(...args);
         onResult(result);
         onOperation(values["operation"]);
     };
