@@ -37,6 +37,8 @@ src/
     
     ├── views/            # Vistas por algoritmo
     
+    ├── types/            # Tipos e interfaces compartidas
+    
     ├── hooks/            # Hooks personalizados para estado y lógica
     
     ├── styles/           # Estilos organizados por responsabilidad
