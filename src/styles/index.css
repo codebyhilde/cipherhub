@@ -4,3 +4,6 @@
 @import "./components.css";
 @import "./result.css";
 @import "./home/index.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
