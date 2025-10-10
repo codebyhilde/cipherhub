@@ -1,12 +1,25 @@
-@import "./variables.css";
-@import "./base.css";
-@import "./layout.css";
-@import "./components.css";
-@import "./result.css";
-@import "./home/index.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .bg-grid {
+    background-image: linear-gradient(to right, rgb(255 255 255 / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.1) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+  }
+
+  body {
+    @apply bg-background-dark font-display text-white bg-grid;
+    min-height: max(884px, 100dvh);
+  }
+}
+
+@layer components {
+  input {
+    @apply text-white;
+  }
+}
 
 @font-face {
   font-family: 'Space Grotesk';
