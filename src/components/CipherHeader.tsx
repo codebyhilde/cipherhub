@@ -1,17 +1,17 @@
-import { LockKeyhole } from "lucide-react";
-
 interface CipherHeaderProps {
-    title: string;
-    description: string;
+    cipherName: string;
 }
 
-export function CipherHeader({ title, description }: CipherHeaderProps) {
+export function CipherHeader({ cipherName }: CipherHeaderProps) {
     return (
-        <header>
-            <h1>
-                <LockKeyhole /> {title}
-            </h1>
-            <p>{description}</p>
+        <header className="p-4">
+            <div className="flex items-center justify-between">
+                <img alt="Cipherhub Logo" className="h-8 w-auto" src="" />
+                <nav className="text-xs font-bold uppercase tracking-widest text-primary">
+                    CIPHERHUB / {cipherName}
+                </nav>
+            </div>
         </header>
     );
 }
+
