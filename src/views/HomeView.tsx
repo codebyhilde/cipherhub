@@ -1,11 +1,11 @@
 import { Shuffle, Key, Grid3x3, CodeXml, Info } from "lucide-react";
-import { CipherHeader } from "../components/CipherHeader.tsx";
+import { HomeHeader } from "../components/HomeHeader.tsx";
 import { CipherCardSection } from "../components/CipherCardSection.tsx";
 
 export default function HomeView() {
     return (
         <div className="container">
-            <CipherHeader
+            <HomeHeader
                 title="Cipherhub"
                 description="Explora diferentes algoritmos de cifrado clásico"
             />
