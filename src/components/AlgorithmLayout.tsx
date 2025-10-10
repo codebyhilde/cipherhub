@@ -16,7 +16,7 @@ export function AlgorithmLayout({
 }: AlgorithmLayoutProps) {
     return (
         <div className="container">
-            <CipherHeader title={title} description={description} />
+            <CipherHeader cipherName={title} description={description} />
             <main className="content">
                 <div className="card">{formContent}</div>
                 {resultContent}
