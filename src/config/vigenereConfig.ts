@@ -2,6 +2,7 @@ import { vigenereCipher } from "../algorithms/vigenere";
 
 export const vigenereConfig = {
     name: "Cifrado Vigenère",
+    breadcrumbName: "Vigenère",
     description: "Usa una clave para enmascarar tu texto",
     fields: [
         {

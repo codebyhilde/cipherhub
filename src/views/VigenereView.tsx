@@ -11,6 +11,7 @@ function VigenereView() {
     return (
         <AlgorithmLayout
             title={vigenereConfig.name}
+            breadcrumbText={vigenereConfig.breadcrumbName}
             description={vigenereConfig.description}
             formContent={
                 <CipherForm
