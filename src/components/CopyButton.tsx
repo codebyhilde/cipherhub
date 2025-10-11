@@ -19,7 +19,24 @@ export function CopyButton({ text }: CopyButtonProps) {
     };
 
     return (
-        <button className="copy-btn" onClick={handleCopy} aria-label="Copiar al portapapeles">
+        <button
+            className={`
+                inline-flex items-center gap-2 
+                px-4 py-2 
+                rounded-lg 
+                border 
+                transition-all duration-300 
+                font-medium text-sm
+                hover:scale-105 active:scale-95
+                ${
+                    copied
+                        ? "bg-green-500/20 border-green-500 text-green-400"
+                        : "bg-primary/10 border-primary/30 text-primary hover:bg-primary/20"
+                }
+            `}
+            onClick={handleCopy}
+            aria-label="Copiar al portapapeles"
+        >
             {copied ? <BookCopy /> : <Copy />}
             {copied ? "Copiado" : "Copiar"}
         </button>
