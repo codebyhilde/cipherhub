@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { KeyRound } from "lucide-react";
+import { CipherInputLabel } from "./CipherInputLabel";
 import type { CipherConfig } from "../types/components/forms";
 
 interface CipherFormProps {
@@ -46,11 +47,16 @@ export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
     return (
         <form onSubmit={handleSubmit}>
             {config.fields.map(field => (
-                <div className="form-group" key={field.name}>
-                    <label htmlFor={field.name}>{field.label}</label>
+                <div className="mb-2" key={field.name}>
+                    <CipherInputLabel
+                        key={field.name}
+                        name={field.name}
+                        content={field.label}
+                    />
 
                     {field.type === "select" ? (
                         <select
+                            className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded focus:border-primary focus:ring-primary text-white font-mono"
                             id={field.name}
                             name={field.name}
                             required={field.required}
@@ -68,6 +74,7 @@ export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
                         </select>
                     ) : (
                         <input
+                            className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded focus:border-primary focus:ring-primary placeholder-white/40 text-white font-mono"
                             id={field.name}
                             name={field.name}
                             type={field.type}
@@ -84,8 +91,11 @@ export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
                 </div>
             ))}
 
-            <button type="submit">
-                <KeyRound size={17} color="yellow" /> Procesar
+            <button
+                type="submit"
+                className="w-full py-4 text-center font-bold text-lg uppercase tracking-wider bg-primary text-background-dark rounded-lg hover:bg-primary/90 transition-colors duration-300 shadow-[0_0_15px_rgba(6,234,74,0.5)]"
+            >
+                Procesar
             </button>
         </form>
     );
