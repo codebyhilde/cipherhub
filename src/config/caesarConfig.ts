@@ -2,7 +2,8 @@ import { caesarCipher } from "../algorithms/caesar";
 
 export const caesarConfig = {
     name: "Cifrado César",
-    description: "Cifra y descifra texto usando el método clásico",
+    breadcrumbName: "César",
+    description: "El cifrado César es una técnica de cifrado por sustitución en la que cada letra del texto original se reemplaza por otra letra que se encuentra un número fijo de posiciones más adelante en el alfabeto. Por ejemplo, con un desplazamiento de 3, la letra 'A' se reemplazaría por 'D', 'B' se convertiría en 'E', y así sucesivamente. Este método, aunque simple, fue utilizado por Julio César en sus correspondencias secretas.",
     fields: [
         {
             name: "inputText",

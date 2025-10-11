@@ -10,7 +10,8 @@ function CaesarView() {
 
     return (
         <AlgorithmLayout
-            title="César"
+            title={caesarConfig.name}
+            breadcrumbText={caesarConfig.breadcrumbName}
             description={caesarConfig.description}
             formContent={
                 <CipherForm
