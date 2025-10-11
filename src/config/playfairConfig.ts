@@ -2,6 +2,7 @@ import { playfairCipher } from "../algorithms/playfair";
 
 export const playfairConfig = {
     name: "Cifrado Playfair",
+    breadcrumbName: "Playfair",
     description:
         "Codifica y decodifica digramas usando una matriz generada por clave",
     fields: [

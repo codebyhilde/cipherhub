@@ -11,6 +11,7 @@ function PlayfairView() {
     return (
         <AlgorithmLayout
             title={playfairConfig.name}
+            breadcrumbText={playfairConfig.breadcrumbName}
             description={playfairConfig.description}
             formContent={
                 <CipherForm
