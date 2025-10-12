@@ -1,82 +1,49 @@
-import { Shuffle, Key, Grid3x3, CodeXml, Info } from "lucide-react";
-import { HomeHeader } from "../components/HomeHeader.tsx";
-import { CipherCardSection } from "../components/CipherCardSection.tsx";
+import { HomeHeader } from "../components/HomeHeader";
+import { InfoSection } from "../components/InfoSection";
+import { HeroCard } from "../components/HeroCard";
+import { CipherCardSection } from "../components/CipherCardSection";
 
 export default function HomeView() {
     return (
-        <div className="container">
-            <HomeHeader
-                title="Cipherhub"
-                description="Explora diferentes algoritmos de cifrado clásico"
-            />
-
-            <main>
-                <section className="intro-section">
-                    <div className="card">
-                        <h2>Bienvenido a Cipherhub</h2>
-                        <p>
-                            Una colección de implementaciones de algoritmos
-                            criptográficos clásicos. Selecciona uno de los
-                            métodos disponibles para comenzar.
-                        </p>
-                    </div>
-                </section>
-
-                <section className="ciphers-section">
-                    <h2>
-                        <CodeXml /> Algoritmos Disponibles
-                    </h2>
-
-                    <div className="cipher-cards">
-                        <CipherCardSection
-                            title="Cifrado César"
-                            description="Un cifrado por sustitución que desplaza las letras del alfabeto según un valor numérico fijo."
-                            icon={<Shuffle />}
-                            route="/caesar"
+        <div className="min-h-screen">
+            <div className="flex h-full flex-col justify-between">
+                <div>
+                    <HomeHeader />
+                    <main className="p-4">
+                        <HeroCard
+                            title="¡Bienvenido al pasado!"
+                            paragraph="Explora la encriptación clásica con Cipherhub. Aprende, experimenta y protege mensajes con un encanto retro."
                         />
-                        <CipherCardSection
-                            title="Cifrado Vigenère"
-                            description="Un método de cifrado polialfabético que utiliza una palabra clave para determinar el desplazamiento."
-                            icon={<Key />}
-                            route="/vigenere"
+                        <h3 className="mt-8 mb-4 font-bold text-xl text-primary">
+                            Algoritmos Disponibles
+                        </h3>
+                        <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4">
+                            <CipherCardSection
+                                cipherName="Cifrado César"
+                                description="Monoalfabético"
+                                route="/caesar"
+                                bgUrl="/keyboard-bg-1.webp"
+                            />
+                            <CipherCardSection
+                                cipherName="Cifrado Vigenère"
+                                description="Polialfabético"
+                                route="/vigenere"
+                                bgUrl="/keyboard-bg-2.webp"
+                            />
+                            <CipherCardSection
+                                cipherName="Cifrado Playfair"
+                                description="Polialfabético Digrámico"
+                                route="/playfair"
+                                bgUrl="/keyboard-bg-1.webp"
+                            />
+                        </div>
+                        <InfoSection
+                            info="Este proyecto es una implementación en constante desarrollo de algoritmos criptográficos clásicos. La página se irá actualizando con nuevos cifrados y mejoras en el futuro."
+                            githubUrl="https://github.com/codebyhilde/cipherhub"
                         />
-                        <CipherCardSection
-                            title="Cifrado Playfair"
-                            description="Un cifrado de sustitución digrámica que encripta pares de letras en lugar de letras individuales."
-                            icon={<Grid3x3 />}
-                            route="/playfair"
-                        />
-                    </div>
-                </section>
-
-                <section className="info-section">
-                    <div className="card">
-                        <h2>
-                            <Info /> Acerca de este proyecto
-                        </h2>
-                        <p>
-                            Este proyecto es una implementación en constante
-                            desarrollo de algoritmos criptográficos clásicos. La
-                            página se irá actualizando con nuevos cifrados y
-                            mejoras en el futuro.
-                        </p>
-                        <p>
-                            Puedes explorar el código fuente en{" "}
-                            <a
-                                href="https://github.com/codebyhilde/cipherhub"
-                                className="repo-link"
-                            >
-                                GitHub
-                            </a>
-                            .
-                        </p>
-                    </div>
-                </section>
-            </main>
-
-            <footer className="footer">
-                <p>Cipherhub - 2025</p>
-            </footer>
+                    </main>
+                </div>
+            </div>
         </div>
     );
 }
