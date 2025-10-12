@@ -20,7 +20,7 @@ export function AlgorithmLayout({
 }: AlgorithmLayoutProps) {
     return (
         <div className="flex flex-col min-h-screen">
-            <CipherHeader cipherName={breadcrumbText} />
+            <CipherHeader cipherName={breadcrumbText ?? "Cifrado"} />
             <main className="flex-grow p-4 space-y-8">
                 <CipherTitle title={title} />
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

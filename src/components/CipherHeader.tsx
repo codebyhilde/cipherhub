@@ -8,10 +8,9 @@ export function CipherHeader({ cipherName }: CipherHeaderProps) {
             <div className="flex items-center justify-between">
                 <img alt="Cipherhub Logo" className="h-8 w-auto" src="" />
                 <nav className="text-xs font-bold uppercase tracking-widest text-primary">
-                    CIPHERHUB / {cipherName}
+                    CIPHERHUB / {cipherName ?? "Cifrado"}
                 </nav>
             </div>
         </header>
     );
 }
-

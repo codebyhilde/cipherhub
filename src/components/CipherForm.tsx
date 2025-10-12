@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { KeyRound } from "lucide-react";
 import { CipherInputLabel } from "./CipherInputLabel";
 import type { CipherConfig } from "../types/components/forms";
 

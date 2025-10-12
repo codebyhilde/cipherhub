@@ -16,7 +16,7 @@ export function CipherResult({ result, operation }: CipherResultProps) {
                 </h3>
                 <CopyButton text={result} />
             </div>
-            <textarea className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded placeholder-white/40 text-white font-mono" placeholder="El resultado aparecerá aquí..." readonly="" rows="6" value={result}></textarea>
+            <textarea className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded placeholder-white/40 text-white font-mono" placeholder="El resultado aparecerá aquí..." readOnly rows={6} value={result}></textarea>
         </div>
     );
 }
