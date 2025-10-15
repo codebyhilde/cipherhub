@@ -16,7 +16,7 @@ export function InfoSection({ info , githubUrl}: InfoSectionProps) {
                 Puedes explorar el código fuente en{" "}
                 <a
                     href={githubUrl}
-                    className="text-primary underline hover:text-green-400"
+                    className="text-primary hover:text-green-400 hover:underline"
                     target="_blank"
                     rel="noreferrer"
                 >
