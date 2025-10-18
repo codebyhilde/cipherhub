@@ -30,7 +30,7 @@ Esto lo convierte en un sistema más robusto que los cifrados monoalfabéticos, 
             label: "Clave:",
             type: "text" as const,
             pattern: "^[A-Za-z]+$",
-            title: "Por favor ingrese solo una palabra con caracteres alfabéticos, sin espacios ni números",
+            title: "Por favor ingrese una única palabra con caracteres alfabéticos. Sin espacios ni números",
             placeholder: "Escribe tu clave aquí...",
             required: true
         },
