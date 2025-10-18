@@ -10,7 +10,7 @@ interface CipherFormProps {
 }
 
 export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
-    const { values, handleChange, handleSubmit } = useCipherResult({
+    const { values, handleChange, handleSubmit, errors } = useCipherResult({
         config,
         onResult,
         onOperation
@@ -52,13 +52,14 @@ export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
                             required={field.required}
                             min={field.min}
                             max={field.max}
-                            pattern={field.pattern}
-                            title={field.title}
                             placeholder={field.placeholder}
                             value={values[field.name]}
                             onChange={handleChange}
                         />
                     )}
+                    {errors[field.name] ? (
+                        <p className="text-red-700">{errors[field.name]}</p>
+                    ) : null}
                 </div>
             ))}
 
