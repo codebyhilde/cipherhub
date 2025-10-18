@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { CipherInputLabel } from "./CipherInputLabel";
 import { useCipherResult } from "../hooks/useCipherResult.ts";
 import type { CipherConfig } from "../types/components/forms";
