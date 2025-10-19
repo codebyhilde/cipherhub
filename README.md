@@ -41,7 +41,7 @@ src/
     
     ├── hooks/            # Hooks personalizados para estado y lógica
     
-    ├── styles/           # Estilos organizados por responsabilidad
+    ├── styles/           #  Contiene el CSS base de Tailwind
 
 └── App.tsx           # Enrutamiento de la homepage y algoritmos
 
@@ -61,12 +61,17 @@ npm run dev
 ## 📚 Roadmap técnico
 
 - [x] Migración completa a React + TypeScript
-- [x] Modularización de estilos y componentes
+- [x] Modularización de estilos y componentes (Resuelto con la migración a TailwindCSS)
+- [x] Botón de limpieza global de inputs y resultados (Cleanup Button)
 - [ ] Configuración centralizada de algoritmos
-- [ ] Animaciones con Framer Motion
 - [ ] Historial de cifrados con persistencia local
 - [ ] Modo educativo con simulador visual
-- [ ] Tema oscuro y personalización visual
+- [ ] Posibilidad de elegir entre varios temas (personalización visual)
+
+### 📈 Próximas Mejoras
+
+- [ ] **Auditoría de Rendimiento y Optimización:** Implementación de *debounce* en *inputs* controlados, memoización avanzada, y auditoría de Lighthouse.
+- [ ] **Testing de Cobertura con Jest:** Implementación de pruebas unitarias para todos los algoritmos de cifrado.
 
 > Nota: este roadmap es una guía evolutiva. Es posible que algunas ideas no se cumplan al pie de la letra, pudiendo cambiar y adaptarse según el rumbo del proyecto.
 ---
