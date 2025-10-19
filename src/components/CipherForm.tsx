@@ -1,4 +1,5 @@
 import { CipherInputLabel } from "./CipherInputLabel";
+import { useEffect } from "react";
 import { useCipherResult } from "../hooks/useCipherResult.ts";
 import type { CipherConfig } from "../types/components/forms";
 
@@ -6,14 +7,30 @@ interface CipherFormProps {
     config: CipherConfig;
     onResult: (result: string) => void;
     onOperation: (operation: "cipher" | "decipher") => void;
+    onFormReset?: (clearFn: () => void) => void;
 }
 
-export function CipherForm({ config, onResult, onOperation }: CipherFormProps) {
-    const { values, handleChange, handleSubmit, errors } = useCipherResult({
-        config,
-        onResult,
-        onOperation
-    });
+export function CipherForm({
+    config,
+    onResult,
+    onOperation,
+    onFormReset
+}: CipherFormProps) {
+    const { values, handleChange, handleSubmit, errors, clearValues } =
+        useCipherResult({
+            config,
+            onResult,
+            onOperation
+        });
+
+    useEffect(() => {
+        if (onFormReset) {
+            onFormReset(() => {
+                clearValues();
+            });
+        }
+    }, [clearValues, onFormReset]);
+
     return (
         <form onSubmit={handleSubmit}>
             {config.fields.map(field => (
