@@ -34,7 +34,7 @@ function PlayfairView() {
                         result={result}
                         operation={operation}
                         handleClearResult={handleClearResult}
-                        handleResetForm={handleClearClick}
+                        handleFormReset={handleClearClick}
                     />
                 )
             }

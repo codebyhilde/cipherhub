@@ -34,7 +34,7 @@ function VigenereView() {
                         result={result}
                         operation={operation}
                         handleClearResult={handleClearResult}
-                        handleResetForm={handleClearClick}
+                        handleFormReset={handleClearClick}
                     />
                 )
             }
