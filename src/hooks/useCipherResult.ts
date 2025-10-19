@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import type { CipherConfig } from "../types/components/forms";
 
 interface useCipherResultArgs {
@@ -12,15 +12,17 @@ export function useCipherResult({
     onResult,
     onOperation
 }: useCipherResultArgs) {
-    const [values, setValues] = useState<Record<string, any>>(
-        config.fields.reduce(
+    const initialValues = useMemo(() => {
+        return config.fields.reduce(
             (acc, field) => {
                 acc[field.name] = field.defaultValue ?? "";
                 return acc;
             },
             {} as Record<string, any>
-        )
-    );
+        );
+    }, [config.fields]);
+
+    const [values, setValues] = useState<Record<string, any>>(initialValues);
     const [errors, setErrors] = useState<Record<string, string>>({});
 
     const getValidationError = (
@@ -29,7 +31,7 @@ export function useCipherResult({
     ): string | undefined => {
         const fieldConfig = config.fields.find(f => f.name === name);
         if (!fieldConfig) return;
-        
+
         if (fieldConfig.required && value === "") {
             return "Este campo es requerido";
         } else if (fieldConfig.pattern && value !== "") {
@@ -82,7 +84,7 @@ export function useCipherResult({
             setErrors(newErrors);
             return;
         }
-        
+
         const args = config.fields.map(field => {
             if (field.type === "number") {
                 const value = values[field.name];
@@ -90,15 +92,22 @@ export function useCipherResult({
             }
             return values[field.name];
         });
+
         const result = (config.algorithm as Function)(...args);
         onResult(result);
         onOperation(values["operation"]);
     };
 
+    const clearValues = useCallback(() => {
+        setValues(() => initialValues);
+        setErrors({});
+    }, [initialValues]);
+
     return {
         values,
         handleChange,
         handleSubmit,
-        errors
+        errors,
+        clearValues
     };
 }

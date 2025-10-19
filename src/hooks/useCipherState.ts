@@ -7,11 +7,14 @@ export function useCipherState() {
     const handleResult = (value: string) => setResult(value);
     const handleOperation = (value: "cipher" | "decipher") =>
         setOperation(value);
+        
+    const handleClearResult = () => setResult("");
 
     return {
         result,
         operation,
         handleResult,
-        handleOperation
+        handleOperation,
+        handleClearResult
     };
 }
