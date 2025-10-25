@@ -1,29 +1,26 @@
 import { CipherInputLabel } from "./CipherInputLabel";
 import { useEffect } from "react";
 import { useCipherResult } from "../hooks/useCipherResult.ts";
+import { useCipherState } from "../hooks/useCipherState";
 import type { CipherConfig } from "../types/components/forms";
 
 interface CipherFormProps {
     config: CipherConfig;
-    onFormReset?: (clearFn: () => void) => void;
 }
 
-export function CipherForm({
-    config,
-    onFormReset
-}: CipherFormProps) {
+export function CipherForm({ config }: CipherFormProps) {
     const { values, handleChange, handleSubmit, errors, clearValues } =
         useCipherResult({
             config
         });
+    const { shouldCleanInputs, setShouldCleanInputs } = useCipherState();
 
     useEffect(() => {
-        if (onFormReset) {
-            onFormReset(() => {
-                clearValues();
-            });
+        if (shouldCleanInputs) {
+            clearValues();
+            setShouldCleanInputs(false);
         }
-    }, [clearValues, onFormReset]);
+    }, [shouldCleanInputs, setShouldCleanInputs]);
 
     return (
         <form onSubmit={handleSubmit}>
