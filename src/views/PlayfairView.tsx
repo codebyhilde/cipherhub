@@ -6,13 +6,7 @@ import { playfairConfig } from "../config/playfairConfig.ts";
 import { useCipherState } from "../hooks/useCipherState.ts";
 
 function PlayfairView() {
-    const {
-        result,
-        operation,
-        handleResult,
-        handleOperation,
-        handleClearResult
-    } = useCipherState();
+    const { result } = useCipherState();
     const { handleClearClick, handleSetReset } = useResetForm();
 
     return (
@@ -23,20 +17,11 @@ function PlayfairView() {
             formContent={
                 <CipherForm
                     config={playfairConfig}
-                    onResult={handleResult}
-                    onOperation={handleOperation}
-                    onFormReset={handleSetReset} 
+                    onFormReset={handleSetReset}
                 />
             }
             resultContent={
-                result && (
-                    <CipherResult
-                        result={result}
-                        operation={operation}
-                        handleClearResult={handleClearResult}
-                        handleFormReset={handleClearClick}
-                    />
-                )
+                result && <CipherResult handleFormReset={handleClearClick} />
             }
         />
     );

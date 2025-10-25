@@ -6,13 +6,7 @@ import { caesarConfig } from "../config/caesarConfig.ts";
 import { useCipherState } from "../hooks/useCipherState.ts";
 
 function CaesarView() {
-    const {
-        result,
-        operation,
-        handleResult,
-        handleOperation,
-        handleClearResult
-    } = useCipherState();
+    const { result } = useCipherState();
     const { handleClearClick, handleSetReset } = useResetForm();
 
     return (
@@ -23,20 +17,11 @@ function CaesarView() {
             formContent={
                 <CipherForm
                     config={caesarConfig}
-                    onResult={handleResult}
-                    onOperation={handleOperation}
                     onFormReset={handleSetReset}
                 />
             }
             resultContent={
-                result && (
-                    <CipherResult
-                        result={result}
-                        operation={operation}
-                        handleClearResult={handleClearResult}
-                        handleFormReset={handleClearClick}
-                    />
-                )
+                result && <CipherResult handleFormReset={handleClearClick} />
             }
         />
     );
