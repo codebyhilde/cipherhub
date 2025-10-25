@@ -3,11 +3,7 @@ import { CopyButton } from "./CopyButton.tsx";
 import { useCipherState } from "../hooks/useCipherState.ts";
 import { ResetButton } from "./ResetButton.tsx";
 
-interface CipherResultProps {
-    handleFormReset: () => void;
-}
-
-export function CipherResult({ handleFormReset }: CipherResultProps) {
+export function CipherResult() {
     const { result, operation } = useCipherState();
 
     return (
@@ -19,7 +15,7 @@ export function CipherResult({ handleFormReset }: CipherResultProps) {
                 </h3>
                 <div className="flex justify-around gap-3">
                     <CopyButton text={result} />
-                    <ResetButton onResetForm={handleFormReset} />
+                    <ResetButton />
                 </div>
             </div>
             <textarea
