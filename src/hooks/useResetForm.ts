@@ -1,7 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 export function useResetForm() {
-  const [resetForm, setResetForm] = useState<(() => void) | null>(null);
+    const [resetForm, setResetForm] = useState<(() => void) | null>(null);
 
     const handleSetReset = useCallback((clearFn: () => void) => {
         setResetForm(() => clearFn);
@@ -12,9 +12,9 @@ export function useResetForm() {
             resetForm();
         }
     }, [resetForm]);
-    
-    return {  
-      handleClearClick,
-      handleSetReset
-    }
+
+    return {
+        handleClearClick,
+        handleSetReset
+    };
 }

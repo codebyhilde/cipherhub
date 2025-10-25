@@ -1,20 +1,12 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { CipherStateContext } from "../context/CipherStateContext.tsx";
 
 export function useCipherState() {
-    const [result, setResult] = useState("");
-    const [operation, setOperation] = useState<"cipher" | "decipher">("cipher");
+    const context = useContext(CipherStateContext);
 
-    const handleResult = (value: string) => setResult(value);
-    const handleOperation = (value: "cipher" | "decipher") =>
-        setOperation(value);
-        
-    const handleClearResult = () => setResult("");
+    if (context === undefined) {
+        throw new Error("useCipherState must be used within a CipherProvider");
+    }
 
-    return {
-        result,
-        operation,
-        handleResult,
-        handleOperation,
-        handleClearResult
-    };
+    return context;
 }
