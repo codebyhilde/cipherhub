@@ -1,17 +1,14 @@
 import { useState, useMemo, useCallback } from "react";
+import { useCipherState } from "./useCipherState.ts";
 import type { CipherConfig } from "../types/components/forms";
 
 interface useCipherResultArgs {
     config: CipherConfig;
-    onResult: (result: string) => void;
-    onOperation: (operation: "cipher" | "decipher") => void;
 }
 
-export function useCipherResult({
-    config,
-    onResult,
-    onOperation
-}: useCipherResultArgs) {
+export function useCipherResult({ config }: useCipherResultArgs) {
+    const { setResult, setOperation } = useCipherState();
+
     const initialValues = useMemo(() => {
         return config.fields.reduce(
             (acc, field) => {
@@ -94,8 +91,8 @@ export function useCipherResult({
         });
 
         const result = (config.algorithm as Function)(...args);
-        onResult(result);
-        onOperation(values["operation"]);
+        setResult(result);
+        setOperation(values["operation"]);
     };
 
     const clearValues = useCallback(() => {

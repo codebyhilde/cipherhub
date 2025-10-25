@@ -1,14 +1,11 @@
 import { Eraser } from "lucide-react";
+import { useCipherState } from "../hooks/useCipherState";
 
-interface ResetButtonProps {
-    onClearResult: () => void;
-    onResetForm: () => void;
-}
-
-export function ResetButton({ onClearResult, onResetForm }: ResetButtonProps) {
+export function ResetButton() {
+    const { setResult, setShouldCleanInputs } = useCipherState();
     const clearAll = () => {
-        onClearResult();
-        onResetForm();
+        setResult("");
+        setShouldCleanInputs(true);
     };
 
     return (

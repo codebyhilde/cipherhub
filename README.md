@@ -1,6 +1,6 @@
 # 🔐 Cipherhub — Cifrados clásicos, arquitectura moderna
 
-**Cipherhub** es una SPA construida con **React + TypeScript y orquestada con Vite** que implementa algoritmos criptográficos clásicos con una arquitectura modular, escalable y visualmente clara. Este proyecto nace de la necesidad de migrar una implementación previa en HTML/CSS/JS con mucho código boilerplate hacia un entorno más profesional que permita continuidad, portabilidad y evolución técnica.
+**Cipherhub** es una SPA construida con **React + TypeScript + TailwindCSS y orquestada con Vite** que implementa algoritmos criptográficos clásicos con una arquitectura modular, escalable y visualmente clara. Este proyecto nace de la necesidad de migrar una implementación previa en HTML/CSS/JS con mucho código boilerplate hacia un entorno más profesional que permita continuidad, portabilidad y evolución técnica.
 
 ---
 
@@ -27,6 +27,7 @@
 ## 🧱 Estructura del proyecto
 
 
+```text
 src/
 
     ├── algorithms/       # Lógica de cifrado tipada y modular
@@ -41,9 +42,12 @@ src/
     
     ├── hooks/            # Hooks personalizados para estado y lógica
     
+    ├── context/         # Contextos para manejo de estados globales de los cifrados
+    
     ├── styles/           #  Contiene el CSS base de Tailwind
 
 └── App.tsx           # Enrutamiento de la homepage y algoritmos
+```
 
 ---
 
@@ -67,11 +71,6 @@ npm run dev
 - [ ] Historial de cifrados con persistencia local
 - [ ] Modo educativo con simulador visual
 - [ ] Posibilidad de elegir entre varios temas (personalización visual)
-
-### 📈 Próximas Mejoras
-
-- [ ] **Auditoría de Rendimiento y Optimización:** Implementación de *debounce* en *inputs* controlados, memoización avanzada, y auditoría de Lighthouse.
-- [ ] **Testing de Cobertura con Jest:** Implementación de pruebas unitarias para todos los algoritmos de cifrado.
 
 > Nota: este roadmap es una guía evolutiva. Es posible que algunas ideas no se cumplan al pie de la letra, pudiendo cambiar y adaptarse según el rumbo del proyecto.
 ---
