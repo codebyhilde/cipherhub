@@ -5,22 +5,16 @@ import type { CipherConfig } from "../types/components/forms";
 
 interface CipherFormProps {
     config: CipherConfig;
-    onResult: (result: string) => void;
-    onOperation: (operation: "cipher" | "decipher") => void;
     onFormReset?: (clearFn: () => void) => void;
 }
 
 export function CipherForm({
     config,
-    onResult,
-    onOperation,
     onFormReset
 }: CipherFormProps) {
     const { values, handleChange, handleSubmit, errors, clearValues } =
         useCipherResult({
-            config,
-            onResult,
-            onOperation
+            config
         });
 
     useEffect(() => {

@@ -1,20 +1,15 @@
 import { Lock, LockOpen } from "lucide-react";
 import { CopyButton } from "./CopyButton.tsx";
+import { useCipherState } from "../hooks/useCipherState.ts";
 import { ResetButton } from "./ResetButton.tsx";
 
 interface CipherResultProps {
-    result: string;
-    operation: "cipher" | "decipher";
-    handleClearResult: () => void;
     handleFormReset: () => void;
 }
 
-export function CipherResult({
-    result,
-    operation,
-    handleClearResult,
-    handleFormReset
-}: CipherResultProps) {
+export function CipherResult({ handleFormReset }: CipherResultProps) {
+    const { result, operation } = useCipherState();
+
     return (
         <div className="flex flex-col gap-2">
             <div className="result-header">
@@ -24,10 +19,7 @@ export function CipherResult({
                 </h3>
                 <div className="flex justify-around gap-3">
                     <CopyButton text={result} />
-                    <ResetButton
-                        onClearResult={handleClearResult}
-                        onResetForm={handleFormReset}
-                    />
+                    <ResetButton onResetForm={handleFormReset} />
                 </div>
             </div>
             <textarea
