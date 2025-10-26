@@ -1,3 +1,5 @@
+import { Logo } from "./Logo";
+
 export function HomeHeader() {
     return (
         <header className="flex items-center justify-between border-b border-primary/20 p-4">
@@ -6,7 +8,7 @@ export function HomeHeader() {
                 C I P H E R H U B
             </h1>
             <div className="flex w-12 items-center justify-end">
-                    <img src="" alt="Logo" className="h-8 w-auto"/>
+                <Logo />
             </div>
         </header>
     );
