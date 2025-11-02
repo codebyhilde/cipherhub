@@ -50,6 +50,10 @@ src/
 ```
 
 ---
+## 📖 Documentación  
+  
+Para una documentación exhaustiva (en inglés) que cubre la arquitectura, patrones de diseño y guías de desarrollo, consulta la [wiki oficial del proyecto](https://deepwiki.com/codebyhilde/cipherhub/1-overview).
+
 
 ## 🛠️ Instalación y ejecución
 
