@@ -5,6 +5,7 @@ import PlayfairView from "./views/PlayfairView.tsx";
 import { CipherProvider } from "./context/CipherStateContext.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/index.css";
+import { UpdateNotification } from "./components/UpdateNotification";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/vigenere" element={<VigenereView />} />
                     <Route path="/playfair" element={<PlayfairView />} />
                 </Routes>
+                <UpdateNotification />
             </BrowserRouter>
         </CipherProvider>
     );
