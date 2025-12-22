@@ -29,7 +29,7 @@ El método Vigenère fue considerado "indescifrable" durante más de dos siglos 
             label: "Clave:",
             type: "text" as const,
             pattern: "^[A-Za-z]+$",
-            title: "Por favor ingrese una única palabra con caracteres alfabéticos. Sin espacios ni números",
+            title: "Por favor ingrese una única palabra con caracteres alfabéticos, exceptuando la ñ. Sin espacios ni números",
             placeholder: "Escribe tu clave aquí...",
             required: true
         },
