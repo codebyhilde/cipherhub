@@ -3,9 +3,14 @@ import { CipherResult } from "../components/CipherResult.tsx";
 import { AlgorithmLayout } from "../components/AlgorithmLayout.tsx";
 import { playfairConfig } from "../config/playfairConfig.ts";
 import { useCipherState } from "../hooks/useCipherState.ts";
+import { useEffect } from "react";
 
 function PlayfairView() {
-    const { result } = useCipherState();
+    const { result, setCurrentAlgorithm } = useCipherState();
+
+    useEffect(() => {
+        setCurrentAlgorithm("playfair");
+    }, []);
 
     return (
         <AlgorithmLayout
