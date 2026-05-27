@@ -66,15 +66,14 @@ npm run dev
 
 ---
 
-## 📚 Roadmap técnico
+## 📚 Roadmap técnico y funcionalidades planeadas
 
 - [x] Migración completa a React + TypeScript
 - [x] Modularización de estilos y componentes (Resuelto con la migración a TailwindCSS)
 - [x] Botón de limpieza global de inputs y resultados (Cleanup Button)
-- [ ] Configuración centralizada de algoritmos
-- [ ] Historial de cifrados con persistencia local
-- [ ] Modo educativo con simulador visual
-- [ ] Posibilidad de elegir entre varios temas (personalización visual)
+- [ ] Migración a NextJS
+- [ ] Implementación de sistema de usuarios e historial de últimos 10 textos cifrados en la web
+- [ ] Implementación de creador de cifrados personalizados, usando los cifrados disponibles
 
 > Nota: este roadmap es una guía evolutiva. Es posible que algunas ideas no se cumplan al pie de la letra, pudiendo cambiar y adaptarse según el rumbo del proyecto.
 ---
