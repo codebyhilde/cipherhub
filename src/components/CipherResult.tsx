@@ -13,7 +13,7 @@ export function CipherResult() {
                     {operation === "cipher" ? <Lock /> : <LockOpen />}{" "}
                     Resultado:
                 </h3>
-                <div className="flex justify-around gap-3">
+                <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))" }}>
                     <CopyButton text={result} />
                     <ShareTextButton />
                     <ResetButton />
