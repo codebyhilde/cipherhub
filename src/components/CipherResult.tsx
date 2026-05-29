@@ -8,7 +8,7 @@ export function CipherResult() {
 
     return (
         <div className="flex flex-col gap-2">
-            <div className="result-header">
+            <div>
                 <h3 className="text-xl flex gap-1 font-bold uppercase tracking-wider text-primary mb-2">
                     {operation === "cipher" ? <Lock /> : <LockOpen />}{" "}
                     Resultado:
@@ -20,7 +20,7 @@ export function CipherResult() {
                 </div>
             </div>
             <textarea
-                className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded placeholder-white/40 text-white font-mono"
+                className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded placeholder-white/40 text-white font-mono resize-none"
                 placeholder="El resultado aparecerá aquí..."
                 readOnly
                 rows={6}
