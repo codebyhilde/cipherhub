@@ -2,7 +2,7 @@ import { Lock, LockOpen } from "lucide-react";
 import { CopyButton } from "./CopyButton.tsx";
 import { useCipherState } from "../hooks/useCipherState.ts";
 import { ResetButton } from "./ResetButton.tsx";
-
+import { ShareTextButton } from "./ShareButton.tsx";
 export function CipherResult() {
     const { result, operation } = useCipherState();
 
@@ -15,6 +15,7 @@ export function CipherResult() {
                 </h3>
                 <div className="flex justify-around gap-3">
                     <CopyButton text={result} />
+                    <ShareTextButton />
                     <ResetButton />
                 </div>
             </div>
