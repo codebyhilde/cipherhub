@@ -13,7 +13,7 @@ export function ShareTextButton() {
     try {
       await navigator.share({
         title: "Cipherhub",
-        text: `Resultado de mi cifrado: ${result}`,
+        text: result,
       });
     } catch (err) {
       // Evitamos loguear error si el usuario simplemente canceló la acción de compartir
