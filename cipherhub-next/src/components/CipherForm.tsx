@@ -1,8 +1,10 @@
+"use client"
+
 import { CipherInputLabel } from "./CipherInputLabel";
 import { useEffect } from "react";
-import { useCipherResult } from "../hooks/useCipherResult.ts";
-import { useCipherState } from "../hooks/useCipherState";
-import type { CipherConfig } from "../types/components/forms";
+import { useCipherResult } from "@/hooks/useCipherResult";
+import { useCipherState } from "@/hooks/useCipherState";
+import type { CipherConfig } from "@/types/components/forms";
 
 interface CipherFormProps {
     config: CipherConfig;
