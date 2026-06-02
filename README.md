@@ -1,17 +1,17 @@
 # 🔐 Cipherhub — Cifrados clásicos, arquitectura moderna
 
-**Cipherhub** es una SPA construida con **React + TypeScript + TailwindCSS y orquestada con Vite** que implementa algoritmos criptográficos clásicos con una arquitectura modular, escalable y visualmente clara. Este proyecto nace de la necesidad de migrar una implementación previa en HTML/CSS/JS con mucho código boilerplate hacia un entorno más profesional que permita continuidad, portabilidad y evolución técnica.
+**Cipherhub** es una aplicación web full-stack construida con **Next.js (App Router), TypeScript y TailwindCSS (v4)** que implementa algoritmos criptográficos clásicos con una arquitectura híbrida, modular y altamente optimizada para motores de búsqueda (SEO). Este proyecto evoluciona de una SPA tradicional en Vite hacia un entorno profesional que aprovecha el renderizado en el servidor (SSR/SSG), optimización nativa de recursos y enrutamiento dinámico robusto.
 
 ---
 
 ## ✨ Características principales
 
-- 🔄 **Cifrado y descifrado dinámico** con algoritmos como César, Vigenère y Playfair
-- 🧩 **Arquitectura modular** con separación clara entre lógica, configuración, vistas y componentes
-- 🎨 **Interfaz responsiva** optimizada para móviles y escritorio
-- 🧠 **Validación semántica** en formularios con expresiones regulares y tooltips explicativos
-- ⚙️ **Sistema de configuración individual** para cada algoritmo
-- 🚀 **Preparado para escalar** con animaciones, temas, historial y cualquier cosa que mejore la UI/UX
+- 🔄 **Cifrado y descifrado dinámico** con algoritmos como César, Vigenère y Playfair.
+- ⚡ **Arquitectura híbrida (Next.js App Router):** Combinación estratégica de *Server Components* para un SEO e indexación óptimos junto a *Client Components* aislados para interactividad en tiempo real.
+- 🔍 **SEO Técnico Avanzado:** Inyección nativa de metadatos, títulos, descripciones y palabras clave optimizadas de forma independiente por cada ruta criptográfica.
+- 🚀 **Rendimiento optimizado (Core Web Vitals):** Carga asíncrona y precarga de fuentes locales mediante `next/font/local` para eliminar el salto visual del texto (CLS), junto a optimización automática de imágenes con `next/image`.
+- 🧩 **Estructura modular limpia:** Separación estricta entre algoritmos matemáticos tipados, configuraciones dinámicas, contextos globales heredados y vistas desacopladas.
+- 🧠 **Validación semántica** en formularios con expresiones regulares y tooltips explicativos retro-modernos.
 
 ---
 ## 🧪 Algoritmos implementados
@@ -24,29 +24,34 @@
 
 ---
 
-## 🧱 Estructura del proyecto
-
+## 🧱 Estructura del proyecto (Next.js App Router)
 
 ```text
 src/
+  ├── algorithms/       # Lógica matemática pura de cifrado, modular y tipada
+  ├── config/           # Configuraciones por algoritmo (campos de formulario, validaciones)
+  ├── components/       # Componentes de UI reutilizables (CipherForm, CipherResult, Layouts)
+  ├── context/          # Contexto global (CipherProvider) heredado en cascada por el layout raíz
+  ├── hooks/            # Hooks personalizados para abstracción de estado interactivo
+  ├── types/            # Interfaces, tipos estrictos y contratos compartidos
+  │
+  └── app/              # Enrutamiento nativo basado en carpetas (File-system Routing)
+      ├── globals.css   # Estilos base y variables de tema estructuradas con TailwindCSS v4
+      ├── layout.tsx    # Layout raíz: Configuración global, carga de fuentes locales y Providers
+      ├── page.tsx      # Landing Page estática (Server Component) optimizada para SEO
+      │
+      ├── caesar/       # Ruta /caesar (Estructura híbrida para SEO individual)
+      │   ├── page.aspx             -> Server Component (Metadatos estáticos)
+      │   └── CaesarClientView.tsx  -> Client Component (Formularios e interactividad)
+      │
+      ├── vigenere/     # Ruta /vigenere
+      │   ├── page.tsx
+      │   └── VigenereClientView.tsx
+      │
+      └── playfair/     # Ruta /playfair
+          ├── page.tsx
+          └── PlayfairClientView.tsx
 
-    ├── algorithms/       # Lógica de cifrado tipada y modular
-    
-    ├── config/           # Configuraciones por algoritmo (nombre, campos, validaciones)
-    
-    ├── components/       # Componentes reutilizables (formulario, layout, resultado)
-    
-    ├── views/            # Vistas por algoritmo
-    
-    ├── types/            # Tipos e interfaces compartidas
-    
-    ├── hooks/            # Hooks personalizados para estado y lógica
-    
-    ├── context/         # Contextos para manejo de estados globales de los cifrados
-    
-    ├── styles/           #  Contiene el CSS base de Tailwind
-
-└── App.tsx           # Enrutamiento de la homepage y algoritmos
 ```
 
 ---
@@ -60,9 +65,11 @@ Para una documentación exhaustiva (en inglés) que cubre la arquitectura, patro
 ```bash
 git clone https://github.com/codebyhilde/cipherhub.git
 cd cipherhub
-npm install
-npm run dev
+npm install # O pnpm install (recomendado)
+npm run dev # O pnpm dev
 ```
+
+El servidor se levantará de inmediato en `http://localhost:3000`.
 
 ---
 
@@ -71,11 +78,11 @@ npm run dev
 - [x] Migración completa a React + TypeScript
 - [x] Modularización de estilos y componentes (Resuelto con la migración a TailwindCSS)
 - [x] Botón de limpieza global de inputs y resultados (Cleanup Button)
-- [ ] Migración a NextJS
+- [x] Migración completa a la arquitectura Next.js App Router y optimización de SEO.
 - [ ] Implementación de sistema de usuarios e historial de últimos 10 textos cifrados en la web
 - [ ] Implementación de creador de cifrados personalizados, usando los cifrados disponibles
 
-> Nota: este roadmap es una guía evolutiva. Es posible que algunas ideas no se cumplan al pie de la letra, pudiendo cambiar y adaptarse según el rumbo del proyecto.
+> Nota: este roadmap actúa como una guía de desarrollo evolutivo y puede adaptarse dinámicamente según el rumbo y necesidades técnicas del sistema.
 ---
 
 ## 🤝 Contribuciones

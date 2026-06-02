@@ -1,8 +1,10 @@
+"use client"
+
 import { Lock, LockOpen } from "lucide-react";
-import { CopyButton } from "./CopyButton.tsx";
-import { useCipherState } from "../hooks/useCipherState.ts";
-import { ResetButton } from "./ResetButton.tsx";
-import { ShareTextButton } from "./ShareButton.tsx";
+import { CopyButton } from "./CopyButton";
+import { useCipherState } from "@/hooks/useCipherState";
+import { ResetButton } from "./ResetButton";
+import { ShareTextButton } from "./ShareTextButton";
 export function CipherResult() {
     const { result, operation } = useCipherState();
 
@@ -20,7 +22,7 @@ export function CipherResult() {
                 </div>
             </div>
             <textarea
-                className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded placeholder-white/40 text-white font-mono resize-none"
+                className="w-full p-3 bg-background-dark/70 border-primary/30 rounded placeholder-white/40 text-white font-mono resize-none"
                 placeholder="El resultado aparecerá aquí..."
                 readOnly
                 rows={6}

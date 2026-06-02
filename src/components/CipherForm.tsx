@@ -1,8 +1,10 @@
+"use client"
+
 import { CipherInputLabel } from "./CipherInputLabel";
 import { useEffect } from "react";
-import { useCipherResult } from "../hooks/useCipherResult.ts";
-import { useCipherState } from "../hooks/useCipherState";
-import type { CipherConfig } from "../types/components/forms";
+import { useCipherResult } from "@/hooks/useCipherResult";
+import { useCipherState } from "@/hooks/useCipherState";
+import type { CipherConfig } from "@/types/components/forms";
 
 interface CipherFormProps {
     config: CipherConfig;
@@ -34,7 +36,7 @@ export function CipherForm({ config }: CipherFormProps) {
 
                     {field.type === "select" ? (
                         <select
-                            className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded focus:border-primary focus:ring-primary text-white font-mono"
+                            className="w-full p-3 bg-background-dark/70 border border-primary/30 rounded focus:border-primary focus:ring-primary text-white font-mono"
                             id={field.name}
                             name={field.name}
                             required={field.required}
@@ -52,7 +54,7 @@ export function CipherForm({ config }: CipherFormProps) {
                         </select>
                     ) : (
                         <input
-                            className="w-full p-3 bg-background-dark/70 dark:bg-background-light/10 border border-primary/30 rounded focus:border-primary focus:ring-primary placeholder-white/40 text-white font-mono"
+                            className="w-full p-3 bg-background-dark/70 border border-primary/30 rounded focus:border-primary focus:ring-primary placeholder-white/40 text-white font-mono"
                             id={field.name}
                             name={field.name}
                             type={field.type}

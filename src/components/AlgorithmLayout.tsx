@@ -24,7 +24,7 @@ export function AlgorithmLayout({
             <main className="flex-grow p-4 space-y-8">
                 <CipherTitle title={title} />
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="space-y-6 p-6 bg-background-dark/50 dark:bg-background-light/5 border border-primary/20 rounded-lg">
+                    <div className="space-y-6 p-6 bg-background-dark/50 border border-primary/20 rounded-lg">
                         {formContent}
                         {resultContent}
                     </div>

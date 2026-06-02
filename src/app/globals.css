@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Definición del tema */
+@theme {
+  --color-primary: #06ea4a;
+  --color-background-light: #f5f8f6;
+  --color-background-dark: #0f2315;
+
+  --font-display: var(--font-display), sans-serif;
+
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+/* Definición de utilidades personalizadas */
+@utility bg-grid {
+  background-image: linear-gradient(to right, rgb(255 255 255 / 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgb(255 255 255 / 0.1) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+}
+
+/* Estilos Base */
+body {
+  background-color: var(--color-background-dark);
+  font-family: var(--font-display);
+  color: #ffffff;
+  min-height: max(884px, 100dvh);
+  @apply bg-grid; 
+}

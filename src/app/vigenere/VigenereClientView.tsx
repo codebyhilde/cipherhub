@@ -1,11 +1,13 @@
-import { CipherForm } from "../components/CipherForm.tsx";
-import { CipherResult } from "../components/CipherResult.tsx";
-import { AlgorithmLayout } from "../components/AlgorithmLayout.tsx";
-import { vigenereConfig } from "../config/vigenereConfig.ts";
-import { useCipherState } from "../hooks/useCipherState.ts";
+"use client"
+
+import { CipherForm } from "@/components/CipherForm";
+import { CipherResult } from "@/components/CipherResult";
+import { AlgorithmLayout } from "@/components/AlgorithmLayout";
+import { vigenereConfig } from "@/config/vigenereConfig";
+import { useCipherState } from "@/hooks/useCipherState";
 import { useEffect } from "react";
 
-function VigenereView() {
+export function VigenereClientView() {
     const { result, setCurrentAlgorithm } = useCipherState();
 
     useEffect(() => {
@@ -23,4 +25,3 @@ function VigenereView() {
     );
 }
 
-export default VigenereView;

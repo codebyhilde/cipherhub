@@ -1,9 +1,9 @@
-import { HomeHeader } from "../components/HomeHeader";
-import { InfoSection } from "../components/InfoSection";
-import { HeroCard } from "../components/HeroCard";
-import { CipherCardSection } from "../components/CipherCardSection";
+import { HomeHeader } from "@/components/HomeHeader";
+import { InfoSection } from "@/components/InfoSection";
+import { HeroCard } from "@/components/HeroCard";
+import { CipherCardSection } from "@/components/CipherCardSection";
 
-export default function HomeView() {
+export default function Home() {
     return (
         <div className="min-h-screen">
             <div className="flex h-full flex-col justify-between">

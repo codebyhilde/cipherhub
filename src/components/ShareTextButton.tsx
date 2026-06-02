@@ -1,4 +1,6 @@
-import { useCipherState } from "../hooks/useCipherState";
+"use client"
+
+import { useCipherState } from "@/hooks/useCipherState";
 import { Share2 } from "lucide-react";
 
 export function ShareTextButton() {

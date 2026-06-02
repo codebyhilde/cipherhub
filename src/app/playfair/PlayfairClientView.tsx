@@ -1,11 +1,13 @@
-import { CipherForm } from "../components/CipherForm.tsx";
-import { CipherResult } from "../components/CipherResult.tsx";
-import { AlgorithmLayout } from "../components/AlgorithmLayout.tsx";
-import { playfairConfig } from "../config/playfairConfig.ts";
-import { useCipherState } from "../hooks/useCipherState.ts";
+"use client"
+
+import { CipherForm } from "@/components/CipherForm";
+import { CipherResult } from "@/components/CipherResult";
+import { AlgorithmLayout } from "@/components/AlgorithmLayout";
+import { playfairConfig } from "@/config/playfairConfig";
+import { useCipherState } from "@/hooks/useCipherState";
 import { useEffect } from "react";
 
-function PlayfairView() {
+export function PlayfairClientView() {
     const { result, setCurrentAlgorithm } = useCipherState();
 
     useEffect(() => {
@@ -22,5 +24,3 @@ function PlayfairView() {
         />
     );
 }
-
-export default PlayfairView;
