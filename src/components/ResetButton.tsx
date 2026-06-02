@@ -1,5 +1,7 @@
+"use client"
+
 import { Eraser } from "lucide-react";
-import { useCipherState } from "../hooks/useCipherState";
+import { useCipherState } from "@/hooks/useCipherState";
 
 export function ResetButton() {
     const { setResult, setShouldCleanInputs } = useCipherState();

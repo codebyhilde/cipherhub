@@ -1,5 +1,7 @@
+"use client"
+
 import { useState, useMemo, useCallback } from "react";
-import { useCipherState } from "./useCipherState.ts";
+import { useCipherState } from "./useCipherState";
 import type { CipherConfig } from "../types/components/forms";
 
 interface useCipherResultArgs {

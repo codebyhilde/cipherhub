@@ -1,8 +1,10 @@
+"use client"
+
 import { Lock, LockOpen } from "lucide-react";
-import { CopyButton } from "./CopyButton.tsx";
-import { useCipherState } from "../hooks/useCipherState.ts";
-import { ResetButton } from "./ResetButton.tsx";
-import { ShareTextButton } from "./ShareButton.tsx";
+import { CopyButton } from "./CopyButton";
+import { useCipherState } from "@/hooks/useCipherState";
+import { ResetButton } from "./ResetButton";
+import { ShareTextButton } from "./ShareTextButton";
 export function CipherResult() {
     const { result, operation } = useCipherState();
 

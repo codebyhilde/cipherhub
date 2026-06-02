@@ -1,83 +1,36 @@
-# 🔐 Cipherhub — Cifrados clásicos, arquitectura moderna
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**Cipherhub** es una SPA construida con **React + TypeScript + TailwindCSS y orquestada con Vite** que implementa algoritmos criptográficos clásicos con una arquitectura modular, escalable y visualmente clara. Este proyecto nace de la necesidad de migrar una implementación previa en HTML/CSS/JS con mucho código boilerplate hacia un entorno más profesional que permita continuidad, portabilidad y evolución técnica.
+## Getting Started
 
----
-
-## ✨ Características principales
-
-- 🔄 **Cifrado y descifrado dinámico** con algoritmos como César, Vigenère y Playfair
-- 🧩 **Arquitectura modular** con separación clara entre lógica, configuración, vistas y componentes
-- 🎨 **Interfaz responsiva** optimizada para móviles y escritorio
-- 🧠 **Validación semántica** en formularios con expresiones regulares y tooltips explicativos
-- ⚙️ **Sistema de configuración individual** para cada algoritmo
-- 🚀 **Preparado para escalar** con animaciones, temas, historial y cualquier cosa que mejore la UI/UX
-
----
-## 🧪 Algoritmos implementados
-
-| Algoritmo | Descripción |
-|-----------|-------------|
-| César     | Desplaza letras según una clave numérica |
-| Vigenère  | Usa una clave alfabética para enmascarar texto |
-| Playfair  | Codifica un texto mediante digramas (pares de letras) utilizando una matriz 5x5 generada por clave |
-
----
-
-## 🧱 Estructura del proyecto
-
-
-```text
-src/
-
-    ├── algorithms/       # Lógica de cifrado tipada y modular
-    
-    ├── config/           # Configuraciones por algoritmo (nombre, campos, validaciones)
-    
-    ├── components/       # Componentes reutilizables (formulario, layout, resultado)
-    
-    ├── views/            # Vistas por algoritmo
-    
-    ├── types/            # Tipos e interfaces compartidas
-    
-    ├── hooks/            # Hooks personalizados para estado y lógica
-    
-    ├── context/         # Contextos para manejo de estados globales de los cifrados
-    
-    ├── styles/           #  Contiene el CSS base de Tailwind
-
-└── App.tsx           # Enrutamiento de la homepage y algoritmos
-```
-
----
-## 📖 Documentación  
-  
-Para una documentación exhaustiva (en inglés) que cubre la arquitectura, patrones de diseño y guías de desarrollo, consulta la [wiki oficial del proyecto](https://deepwiki.com/codebyhilde/cipherhub/1-overview).
-
-
-## 🛠️ Instalación y ejecución
+First, run the development server:
 
 ```bash
-git clone https://github.com/codebyhilde/cipherhub.git
-cd cipherhub
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 📚 Roadmap técnico y funcionalidades planeadas
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- [x] Migración completa a React + TypeScript
-- [x] Modularización de estilos y componentes (Resuelto con la migración a TailwindCSS)
-- [x] Botón de limpieza global de inputs y resultados (Cleanup Button)
-- [ ] Migración a NextJS
-- [ ] Implementación de sistema de usuarios e historial de últimos 10 textos cifrados en la web
-- [ ] Implementación de creador de cifrados personalizados, usando los cifrados disponibles
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-> Nota: este roadmap es una guía evolutiva. Es posible que algunas ideas no se cumplan al pie de la letra, pudiendo cambiar y adaptarse según el rumbo del proyecto.
----
+## Learn More
 
-## 🤝 Contribuciones
+To learn more about Next.js, take a look at the following resources:
 
-Este proyecto está en constante evolución y se agradecen comentarios así como sugerencias para seguir mejorandolo. Puedes contribuir haciendo cosas como proponer nuevos algoritmos, mejoras en la UI/UX o refactorización de componentes. Saludos y gracias de antemano.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
