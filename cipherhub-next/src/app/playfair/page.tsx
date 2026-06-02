@@ -1,28 +1,12 @@
-"use client"
+import type { Metadata } from "next"
+import { PlayfairClientView } from "./PlayfairClientView";
 
-import { CipherForm } from "@/components/CipherForm";
-import { CipherResult } from "@/components/CipherResult";
-import { AlgorithmLayout } from "@/components/AlgorithmLayout";
-import { playfairConfig } from "@/config/playfairConfig";
-import { useCipherState } from "@/hooks/useCipherState";
-import { useEffect } from "react";
+export const metadata: Metadata = {
+  title: "Cifrado Playfair Interactivo — Cipherhub",
+  description: "Explora el cifrado polialfabético digrámico de Playfair. Aprende cómo se genera la matriz de 5x5 basada en una palabra clave para encriptar pares de letras.",
+  keywords: ["cifrado playfair", "digramico", "matriz 5x5", "criptografia clasica", "cipherhub"],
+};
 
-function PlayfairPage() {
-    const { result, setCurrentAlgorithm } = useCipherState();
-
-    useEffect(() => {
-        setCurrentAlgorithm("playfair");
-    }, []);
-
-    return (
-        <AlgorithmLayout
-            title={playfairConfig.name}
-            breadcrumbText={playfairConfig.breadcrumbName}
-            description={playfairConfig.description}
-            formContent={<CipherForm config={playfairConfig} />}
-            resultContent={result && <CipherResult />}
-        />
-    );
+export default function CaesarPage() {
+    return <PlayfairClientView />;
 }
-
-export default PlayfairPage;

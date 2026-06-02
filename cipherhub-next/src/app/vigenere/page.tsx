@@ -1,28 +1,12 @@
-"use client"
+import type { Metadata } from "next";
+import { VigenereClientView } from "./VigenereClientView";
 
-import { CipherForm } from "@/components/CipherForm";
-import { CipherResult } from "@/components/CipherResult";
-import { AlgorithmLayout } from "@/components/AlgorithmLayout";
-import { vigenereConfig } from "@/config/vigenereConfig";
-import { useCipherState } from "@/hooks/useCipherState";
-import { useEffect } from "react";
+export const metadata: Metadata = {
+  title: "Cifrado Vigenère Interactivo — Cipherhub",
+  description: "Cifra y descifra mensajes utilizando el algoritmo polialfabético de Vigenère. Descubre cómo romper la frecuencia de caracteres usando una palabra clave interactiva.",
+  keywords: ["cifrado vigenere", "polialfabetico", "criptografia clasica", "clave vigenere", "cipherhub"],
+};
 
-function VigenerePage() {
-    const { result, setCurrentAlgorithm } = useCipherState();
-
-    useEffect(() => {
-        setCurrentAlgorithm("vigenere");
-    }, []);
-
-    return (
-        <AlgorithmLayout
-            title={vigenereConfig.name}
-            breadcrumbText={vigenereConfig.breadcrumbName}
-            description={vigenereConfig.description}
-            formContent={<CipherForm config={vigenereConfig} />}
-            resultContent={result && <CipherResult />}
-        />
-    );
+export default function VigenerePage() {
+  return <VigenereClientView />;
 }
-
-export default VigenerePage;

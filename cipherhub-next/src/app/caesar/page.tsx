@@ -1,28 +1,12 @@
-"use client"
+import type { Metadata } from "next"
+import { CaesarClientView } from "./CaesarClientView";
 
-import { CipherForm } from "@/components/CipherForm";
-import { CipherResult } from "@/components/CipherResult";
-import { AlgorithmLayout } from "@/components/AlgorithmLayout";
-import { caesarConfig } from "@/config/caesarConfig";
-import { useCipherState } from "@/hooks/useCipherState";
-import { useEffect } from "react";
+export const metadata: Metadata = {
+  title: "Cifrado César interactivo — Cipherhub",
+  description: "Cifra y descifra mensajes utilizando el clásico algoritmo de desplazamiento de César. Ajusta la clave en tiempo real con nuestra intuitiva interfaz retro.",
+  keywords: ["cifrado cesar", "desplazamiento", "criptografia clasica", "cipherhub", "julio cesar", "cifrado monoalfabetico"],
+};
 
-function CaesarPage() {
-    const { result, setCurrentAlgorithm } = useCipherState();
-
-    useEffect(() => {
-        setCurrentAlgorithm("caesar");
-    }, []);
-
-    return (
-        <AlgorithmLayout
-            title={caesarConfig.name}
-            breadcrumbText={caesarConfig.breadcrumbName}
-            description={caesarConfig.description}
-            formContent={<CipherForm config={caesarConfig} />}
-            resultContent={result && <CipherResult />}
-        />
-    );
+export default function CaesarPage() {
+    return <CaesarClientView />;
 }
-
-export default CaesarPage;
